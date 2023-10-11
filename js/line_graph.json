@@ -1,0 +1,44 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": {
+        "text": "Energy Consumption per Capita (kWh/person) over the Years",
+        "fontSize": 16,
+        "anchor": "middle"
+    },
+    "data": {"url": "https://raw.githubusercontent.com/awan0049-monash/FIT3179/main/Assignment2/data/sustainable_energy.csv"},
+    "mark": {
+        "type": "line",
+        "strokeWidth": 2.5
+    },
+    "encoding": {
+      "x": {
+          "field": "Year", 
+          "type": "temporal",
+          "axis": {
+              "format": "%Y",
+              "title": "Year",
+              "labelAngle": 0
+          }
+      },
+      "y": {
+          "field": "Primary energy consumption per capita (kWh/person)", 
+          "type": "quantitative", 
+          "title": "Energy Consumption per capita (kWh/person)",
+          "axis": {
+              "grid": true
+          }
+      },
+      "color": {
+          "field": "Entity", 
+          "type": "nominal",
+          "legend": {
+              "title": "Country",
+              "labelFontSize": 12,
+              "titleFontSize": 14
+          }
+      }
+    },
+    "background": "white",
+    "width": 600,
+    "height": 400
+}
