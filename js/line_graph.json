@@ -6,6 +6,12 @@
         "anchor": "middle"
     },
     "data": {"url": "https://raw.githubusercontent.com/awan0049-monash/FIT3179/main/Assignment2/data/sustainable_energy.csv"},
+    "transform": [{
+        "filter": {
+            "field": "Country",
+            "oneOf": ["Qatar", "United Arab Emirates", "Bahrain", "Kuwait", "Singapore", "Norway", "Luxembourg", "Canada", "Trinidad and Tobago", "United States"]
+        }
+    }],
     "mark": {
         "type": "line",
         "strokeWidth": 2.5
@@ -29,16 +35,20 @@
           }
       },
       "color": {
-          "field": "Entity", 
+          "field": "Country", 
           "type": "nominal",
           "legend": {
               "title": "Country",
               "labelFontSize": 12,
               "titleFontSize": 14
           }
-      }
+      },
+      "tooltip": [
+        {"field": "Country", "title": "Country"},
+        {"field": "Primary energy consumption per capita (kWh/person)", "title": "Energy Consumption (kWh/person)"}
+      ]
     },
     "background": "white",
-    "width": 600,
+    "width": 550,
     "height": 400
 }

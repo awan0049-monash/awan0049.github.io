@@ -1,0 +1,71 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Sources of Electricity by Continent",
+    "width": 500,
+    "height": 300,
+    "data": {
+      "url": "https://raw.githubusercontent.com/awan0049-monash/FIT3179/main/Assignment2/data/sustainable_energy.csv"
+    },
+    "params":[
+      {
+        "name": "Continent_selection",
+        "bind": {
+          "input": "select",
+          "options": [
+            null,
+            "North America",
+            "South America",
+            "Europe",
+            "Africa",
+            "Asia",
+            "Oceania"
+          ],
+          "labels": [
+            "Show All",
+            "North America",
+            "South America",
+            "Europe",
+            "Africa",
+            "Asia",
+            "Oceania"
+          ],
+          "name": "Continent Selection: "
+        }
+      }
+    ],
+    "mark": "area",
+    "encoding": {
+      "x": {"field": "Year", "type": "ordinal"},
+      "y": {
+        "aggregate": "sum", "field": "Electricity", "type": "quantitative",
+        "title": "Electricity(TWh)"    
+      },
+      "color": {"field": "elec_from", "type": "nominal", "title": "Energy Source", 
+        "scale": {
+          "domain": ["Fossil Fuels", "Nuclear", "Renewables"],
+          "range": ["#FFD700", "#1ABC9C", "#FF6B6B"]
+        }
+      },
+      "tooltip": [
+        {"field": "elec_from", "title": "Energy Source"},
+        {"field": "Electricity", "aggregate": "sum", "title": "Electricity(TWh)"}
+      ]
+    },
+    "transform": [
+      {"calculate": "datum['Electricity from fossil fuels (TWh)']",
+      "as": "Fossil Fuels"},
+      {"calculate": "datum['Electricity from nuclear (TWh)']",
+      "as": "Nuclear"},
+      {"calculate": "datum['Electricity from renewables (TWh)']",
+      "as": "Renewables"},
+      {
+        "fold": ["Fossil Fuels", "Nuclear", "Renewables"],
+            "as": ["elec_from", "Electricity"]
+      },
+      {
+        "calculate": "indexof(['Fossil Fuels', 'Nuclear', 'Renewables'], datum.Source)",
+        "as": "order"
+      }, 
+      {"filter": "Continent_selection == null || datum.Continent == Continent_selection"}
+    ]
+  }

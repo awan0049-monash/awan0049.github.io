@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>Global Data on Sustainable Energy</title>
+  <title>>Data on sustainability</title>
   <!-- Import Vega & Vega-Lite (does not have to be from CDN) -->
   <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
@@ -16,7 +16,7 @@
   <!-- Google font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 
   <!-- CSS file -->
   <link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
@@ -29,58 +29,106 @@
   <div class="page">
 
     <!-- pure grid group -->
+<div class="pure-g">
+  <div class="pure-u-1-1">
+    <h1> Global Data on Sustainable Energy (2000-2020)</h1>
+    <p class="centered-paragraph">
+      The primary focus of this visualization will be on showcasing sustainable energy indicators from across all countries such as electricity access, renewable energy, carbon emissions, and energy intensity.
+      Giving a holistic view into global energy consumption patterns over time.
+    </p>
+  </div>
+</div>
+<!-- end pure grid group -->
+
+    
+    <!-- pure grid group -->
     <div class="pure-g">
+      <div class="pure-u-1-3">
+        <div class="description description-left">
+          <h2>CO2 Emissions</h2>
+          <p>For the majority of countries, their CO2 emissions have risen over time. There also seems to be a slight correlation between Energy Consumption per capita as well as the CO2 emissions. 
+          <br><br>
+          The three key countries which had been identified are: <b>China</b> which exponentially grew to emitthe most CO2. <b>Qatar</b> which consumed the most energy
+          per capita. Finally <b>United States</b>, which emitted the mos CO2 up until the year 2005
+        </div>
+      </div>
+      <div class="pure-u-2-3">
+        <div id="bubble_chart" class="vis-container"></div>
+      </div>
+
+    </div>
+    <!-- end pure grid group -->
+
+    <!-- pure grid group -->
+    <div class="pure-g">
+      <div class="pure-u-1-2">
+        <div id="sustainable_map" class="vis-container"></div>
+      </div>
+
+      <div class="pure-u-2-3">
+        <div id="renewable_graph" class="vis-container"></div>
+    </div>
       <div class="pure-u-1-1">
-        <h1>Global Data on Sustainable Energy</h1>
-        <p>.</p>
-      </div>
-    </div>
-    <!-- end pure grid group -->
-
-    <!-- pure grid group -->
-    <div class="pure-g">
-      <div class="pure-u-1-2">
-        <div class="description description-left">
-          <h2>Percentage</h2>
-          <p>placeholder text </p>
-        </div>
-      </div>
-      <div class="pure-u-1-2">
-        <div id="vis1" class="vis-container"></div>
-      </div>
-    </div>
-    <!-- end pure grid group -->
-
-    <!-- pure grid group -->
-    <div class="pure-g">
-      <div class="pure-u-1-3">
-        <div class="description description-left">
-          <h2>Energy consumption per capita</h2>
-          <p>placeholder text</p>
-        </div>
-      </div>
-      <div class="pure-u-1-3">
-        <div id="vis5" class="vis-container"></div>
-      </div>
-      <div class="pure-u-1-3" style="width: 31.5%;">
-        <div id="vis6" class="vis-container" style="margin-left: 15px;"></div>
-      </div>
-
-    </div>
-    <!-- end pure grid group -->
-
-    <!-- pure grid group -->
-    <div class="pure-g">
-      <div class="pure-u-1-3">
-        <div id="vis2" class="vis-container"></div>
-      </div>
-      <div class="pure-u-1-3">
+    
         <div class="description description-right">
-          <h2>CO2 Emissions per Country</h2>
-          <p>placeholder text</p>
-        </div>
+          <h2 class = "h2-right">Access to energy and use of electricity</h2>
+          <p>Over time, all countries around the world have gained more access to electricity. Especially in areas such as Africa, and Middle East Asia. 
+            <br><br>
+            Surprisingly over time the renewable share of energy didn't seem to increase as much throughout the globe. With Africa having the highest usage of renewable energy. 
       </div>
+      
+    </div>
+    <!-- end pure grid group -->
 
+
+<!-- pure grid group -->
+<div class="pure-g">
+  
+  <!-- Graph container -->
+  <div class="pure-u-2-3">
+    <div id="area_graph" class="vis-container"></div>
+  </div>
+
+  <!-- Text container -->
+  <div class="pure-u-1-3">
+    <div class="description description-right">
+     <h2 class="h2-right">Sources of Electricity</h2>
+      <p>Fossil Fuels have consistently been the highest source of electricity around the globe. With many continents choosing to utilise it more over time. 
+        <br><br>
+        Although this can potentially be balanced out by the increase in use of Renewable energy over time as well. 
+      </p>
+    </div>
+  </div>
+
+  <!-- Empty column (if you want to maintain the space on the left) -->
+  <div class="pure-u-1-6"></div>
+
+</div>
+<!-- end pure grid group -->
+
+ <!-- pure grid group -->
+ <div class="pure-g">
+  <div class="pure-u-1-3">
+    <div class="description description-left">
+      <h2>Energy Consumption</h2>
+      <p>The top 10 countries in terms of energy usage per capita. Qatar has consistently been the highest user <br><br> From the year 2018 onwards it seems that the majority of countries experienced a drop in energy consumption.
+      </p>
+    </div>
+  </div>
+  <div class="pure-u-2-3">
+    <div id="line_graph" class="vis-container"></div>
+  </div>
+  </div>
+
+<!-- end pure grid group -->
+<div>
+
+    <div >
+      <div class="pure-u-1-1 small-font">
+        <p>This visualisation is created by <a href="https://github.com/awan0049-monash/awan0049.github.io" target="_blank">Andrew Wang</a>. The datasource is <a href="https://www.kaggle.com/datasets/anshtanwar/global-data-on-sustainable-energy" target=" _blank">'Global Data on Sustainable Energy (2000-2020)' from Kaggle</href>.</p>
+      </div>
+    
+    
     </div>
     <!-- end pure grid group -->
 
@@ -91,26 +139,23 @@
     var specVis2 = "js/bubble_chart.json"
     var specVis3 = "js/line_graph.json"
     var specVis4 = "js/renewable_energy.json"
+    var specVis5 = "js/area_graph.json"
 
-    vegaEmbed('#vis1', specVis1, { "actions": false });
+    vegaEmbed('#sustainable_map', specVis1, { "actions": false });
 
-    vegaEmbed('#vis2', specVis2, { "actions": false }).then(function (result) {
+    vegaEmbed('#bubble_chart', specVis2, { "actions": false }).then(function (result) {
       // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
     }).catch(console.error);
 
-    vegaEmbed('#vis3', specVis1, { "actions": false }).then(function (result) {
+    vegaEmbed('#line_graph', specVis3, { "actions": false }).then(function (result) {
       // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
     }).catch(console.error);
 
-    vegaEmbed('#vis4', specVis2, { "actions": false }).then(function (result) {
+    vegaEmbed('#renewable_graph', specVis4, { "actions": false }).then(function (result) {
       // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
     }).catch(console.error);
 
-    vegaEmbed('#vis5', specVis3, { "actions": false }).then(function (result) {
-      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-    }).catch(console.error);
-
-    vegaEmbed('#vis6', specVis4, { "actions": false }).then(function (result) {
+    vegaEmbed('#area_graph', specVis5, { "actions": false }).then(function (result) {
       // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
     }).catch(console.error);
   </script>
